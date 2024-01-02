@@ -1,0 +1,11 @@
+#Recursion function to calculate factorial
+factorial_recursion<-function(n){
+  if(n==0|n==1){
+    return(1)
+    else{
+      return(n*factorial_recursion(n-1))
+      }
+    }
+  input_number<-5
+  result<-factorial_recursion(input_number)
+  cat("factorial of",input_number,"is:"result,"\n")
