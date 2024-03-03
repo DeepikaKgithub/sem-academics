@@ -6,6 +6,6 @@ factorial_recursion<-function(n){
       return(n*factorial_recursion(n-1))
       }
     }
-  input_number<-5
+  input_number<-5 
   result<-factorial_recursion(input_number)
   cat("factorial of",input_number,"is:"result,"\n")
