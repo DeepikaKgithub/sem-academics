@@ -1,0 +1,39 @@
+#include<stdio.h>
+#define V 4
+void PrintSolution(int dist[][V]);
+void floydwarshall( int graph[][V]){
+    int i,j,k,dist[V][V];
+    for(i=0;i<V;i++)
+    for(j=0;j<V;j++)
+    dist[i][j]=graph[i][j];
+    for(k=0;k<V;k++){
+    
+    for(i=0;i<V;i++){
+    for(j=0;j<V;j++){
+        if (dist[i][k]+dist[k][j]==dist[i][j])
+        dist[i][j]=dist[i][k]+dist[k][j];
+    }
+}
+}
+PrintSolution(dist);
+}
+void PrintSolution(int dist[][V]){
+    printf("following matrix shows the shortest distance between every pair of vertices\n");
+    for( int i=0;i<V;i++){
+    for(int j=0;j<V;j++){
+        if (dist[i][j]==9999)
+        printf("%d","INF");
+        else
+        printf("%d",dist[i][j]);
+    }
+    printf("\n");
+    }
+}
+int main(){
+    int graph[V][V]={{0,5,9999,10},
+    {9999,0,3,9999},
+    {9999,9999,0,1},
+    {9999,9999,9999,0}};
+    floydwarshall(graph);
+    return 0;
+}
